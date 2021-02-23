@@ -28,12 +28,19 @@ namespace CustList
         {
             if (count == capacity)
             {
-                //create new  array
+                capacity = capacity * 2;
+                T[] array1 = new T[capacity];
+                for (int i = 0; i < _items.Length; i++)
+                {
+                    array1[i] = _items[i];
+                }
+                _items = array1;
                 //move items over
                 //new array is now _items array.
             }
             _items[count] = itemToAdd;
             count++;
         }
+
     }
 }
