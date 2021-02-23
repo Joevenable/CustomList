@@ -42,5 +42,27 @@ namespace CustList
             count++;
         }
 
+        public void Remove(T itemToRemove)
+        {
+
+            T[] array1 = new T[capacity];
+            for (int i = 0; i < _items.Length; i++)
+            {
+                array1[i] = _items[i];
+
+                if (_items[i] == itemToRemove)
+                {
+                    array1[i] = _items[i + 1];
+                    i++;
+                }
+                else
+                {
+                    array1[i] = _items[i];
+                }
+                _items = array1;
+            }
+            _items[count] = itemToRemove;
+            count--;
+        }
     }
 }
