@@ -52,7 +52,7 @@ namespace CustListTest
         }
 
         [TestMethod]
-        public void Test_FiveItemUnitListStartingCapacity()
+        public void Test2_Add_FiveItemUnitListStartingCapacity()
         {
             //arrange
             CustomList<string> customListStrings = new CustomList<string>();
@@ -74,7 +74,59 @@ namespace CustListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Test_RemoveItemUnitListEndCount()
+        public void Test3_Add_Item_CountIncreasesByNineCapacity()
+        {
+            //arrange
+            CustomList<string> customListStrings = new CustomList<string>();
+
+
+            int expected = 16;
+            int actual;
+
+            //act
+
+            customListStrings.Add("Tree");
+            customListStrings.Add("Bush");
+            customListStrings.Add("Shrub");
+            customListStrings.Add("Grape");
+            customListStrings.Add("Leaf");
+            customListStrings.Add("flower");
+            customListStrings.Add("bark");
+            customListStrings.Add("car");
+            customListStrings.Add("window");
+            actual = customListStrings.Capacity;
+
+
+            //assert
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Test4_Add_FiveItemUnitList_ItemIndex()
+        {
+            //arrange
+            CustomList<string> customListStrings = new CustomList<string>();
+
+            string expected = "Grape";
+            string actual;
+
+            //act
+            customListStrings.Add("Tree");
+            customListStrings.Add("Bush");
+            customListStrings.Add("Shrub");
+            customListStrings.Add("Grape");
+            customListStrings.Add("Leaf");
+            actual = customListStrings[3];
+
+
+            //assert
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Test_Remove_ItemUnitListEndCount()
         {
             //arrange
             CustomList<string> customListStrings = new CustomList<string>();
@@ -97,5 +149,56 @@ namespace CustListTest
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void Test2_Remove_ItemUnitListEndCapacity()
+        {
+            //arrange
+            CustomList<string> customListStrings = new CustomList<string>();
+
+            int expected = 8;
+            int actual;
+
+            //act
+            customListStrings.Add("Tree");
+            customListStrings.Add("Bush");
+            customListStrings.Add("Shrub");
+            customListStrings.Add("Grape");
+            customListStrings.Add("Leaf");
+            customListStrings.Remove("Bush");
+            customListStrings.Remove("Tree");
+            actual = customListStrings.Capacity;
+
+
+            //assert
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        
+
+        [TestMethod]
+        public void Test3_Remove_ItemUnitListEndCapacity()
+        {
+            //arrange
+            CustomList<string> customListStrings = new CustomList<string>();
+
+            int expected = 8;
+            int actual;
+
+            //act
+            customListStrings.Add("Tree");
+            customListStrings.Add("Bush");
+            customListStrings.Add("Shrub");
+            customListStrings.Add("Grape");
+            customListStrings.Add("Leaf");
+            customListStrings.Remove("Bush");
+            customListStrings.Remove("Tree");
+            actual = customListStrings.Capacity;
+
+
+            //assert
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
