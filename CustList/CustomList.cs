@@ -50,7 +50,7 @@ namespace CustList
             {
                 array1[i] = _items[i];
 
-                if (_items[i] == itemToRemove)
+                if (_items[i].Equals(itemToRemove))
                 {
                     array1[i] = _items[i + 1];
                     i++;
