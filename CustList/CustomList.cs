@@ -46,23 +46,21 @@ namespace CustList
         {
 
             T[] array1 = new T[capacity];
-            for (int i = 0; i < _items.Length; i++)
+            for (int i = 0, j = 0; i < count; i++, j++)
             {
-                array1[i] = _items[i];
 
                 if (_items[i].Equals(itemToRemove))
                 {
-                    array1[i] = _items[i + 1];
-                    i++;
+                    j--;
+                    count--;
                 }
                 else
                 {
-                    array1[i] = _items[i];
+                    array1[j] = _items[i];
                 }
-                _items = array1;
+                
             }
-            _items[count] = itemToRemove;
-            count--;
+            _items = array1;
         }
     }
 }
