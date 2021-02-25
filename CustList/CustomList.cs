@@ -62,5 +62,16 @@ namespace CustList
             }
             _items = array1;
         }
+        public override string ToString()
+        {
+            string items = null;
+            for (int i = 0; i < _items.Length; i++)
+            {
+                items = items + _items[i];
+                
+            }
+            return items;
+
+        }
     }
 }
