@@ -64,14 +64,33 @@ namespace CustList
         }
         public override string ToString()
         {
-            string items = null;
-            for (int i = 0; i < _items.Length; i++)
+            string items = "";
+            for (int i = 0; i < count; i++)
             {
-                items = items + _items[i];
+                if (i == 0)
+                {
+                    items = items + _items[i].ToString();
+                }
+                else
+                {
+                    items = items  + " " + _items[i].ToString();
+                }
+                
                 
             }
             return items;
 
+        }
+        public static CustomList<T> operator +(CustomList<T> numbers1, CustomList<T> numbers2)
+        {
+            CustomList<T> numbers3 = new CustomList<T>();
+
+            
+
+            numbers3.Add(numbers1);
+            numbers3.Add(numbers2);
+
+            return numbers3;
         }
     }
 }

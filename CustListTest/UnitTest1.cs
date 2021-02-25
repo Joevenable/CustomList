@@ -32,7 +32,7 @@ namespace CustListTest
             //arrange
             CustomList<string> customListStrings = new CustomList<string>();
 
-            
+
             int expected = 5;
             int actual;
 
@@ -200,5 +200,50 @@ namespace CustListTest
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void ToString_Test_()
+        {
+            CustomList<string> customListStrings = new CustomList<string>();
+
+            customListStrings.Add("Tree");
+            customListStrings.Add("Bush");
+            customListStrings.Add("Shrub");
+            customListStrings.Add("Grape");
+            customListStrings.Add("Leaf");
+
+            // This line is not needed because the ToString method is going to handle
+            // turning each value into a string
+            // string plants = new string(customListStrings[i]);
+
+            string expected = "Tree Bush Shrub Grape Leaf";
+            // Here we are calling the ToString method on the customListStrings list
+            // The ToString method should then return all of the values in the list in a string format
+            string actual = customListStrings.ToString();
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod]
+        public void ToString_Test2_()
+        {
+            CustomList<int> customListStrings = new CustomList<int>();
+
+            customListStrings.Add(1);
+            customListStrings.Add(6);
+            customListStrings.Add(2);
+            customListStrings.Add(3);
+            customListStrings.Add(5);
+
+           
+
+            string expected = "1 6 2 3 5";
+            
+            string actual = customListStrings.ToString();
+            Assert.AreEqual(expected, actual);
+
+        }
     }
 }
+
+
