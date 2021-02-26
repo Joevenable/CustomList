@@ -97,20 +97,38 @@ namespace CustList
 
             return numbers3;
         }
+        public bool Contains(T thing)
+        {
+
+            for (int i = 0; i < Count; i++)
+            {
+                if (_items[i].Equals(thing))
+                {
+                    return true;
+                }
+                
+            }
+            return false;
+        }
         public static CustomList<T> operator -(CustomList<T> numbers1, CustomList<T> numbers2)
         {
             
-            for (int i = 0, j = 0; i < numbers2.Count; i++, j++)
+            for (int i = 0; i < numbers2.Count; i++)
             {
-                if (numbers1[j].Equals(numbers2[i]))
+                while(numbers1.Contains(numbers2[i]))
                 {
-                    j--;
-                    numbers1.count--;
+                    numbers1.Remove(numbers2[i]);
                 }
             }
-
-
             return numbers1;
+        }
+        public System.Collections.IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < _items.Length; i++)
+            {
+                yield return _items[i];
+            }
+            yield return "done";
         }
 
     }
