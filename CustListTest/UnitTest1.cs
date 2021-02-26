@@ -243,6 +243,56 @@ namespace CustListTest
             Assert.AreEqual(expected, actual);
 
         }
+        [TestMethod]
+        public void Test_Plus_Operator()
+        {
+            CustomList<int> customListStrings = new CustomList<int>();
+            CustomList<int> customListStrings2 = new CustomList<int>();
+            customListStrings.Add(1);
+            customListStrings.Add(6);
+            customListStrings.Add(2);
+            customListStrings.Add(3);
+            customListStrings.Add(5);
+            customListStrings2.Add(3);
+            customListStrings2.Add(12);
+            customListStrings2.Add(8);
+            customListStrings2.Add(8);
+
+            string sum = customListStrings[1].ToString() + customListStrings2[1].ToString();
+
+            
+            string expected = "612";
+
+            string actual = sum;
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
+        public void Test2_Plus_Operator()
+        {
+            CustomList<int> customListStrings = new CustomList<int>();
+            CustomList<int> customListStrings2 = new CustomList<int>();
+            customListStrings.Add(1);
+            customListStrings.Add(6);
+            customListStrings.Add(2);
+            customListStrings.Add(3);
+            customListStrings.Add(5);
+            customListStrings2.Add(3);
+            customListStrings2.Add(8);
+            customListStrings2.Add(7);
+            customListStrings2.Add(12);
+            customListStrings.Remove(2);
+            customListStrings2.Remove(8);
+
+            string sum = customListStrings[2].ToString() + customListStrings2[2].ToString() + customListStrings[0].ToString();
+
+
+            string expected = "3121";
+
+            string actual = sum;
+            Assert.AreEqual(expected, actual);
+
+        }
     }
 }
 

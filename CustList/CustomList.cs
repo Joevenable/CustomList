@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustList
 {
-    public class CustomList <T>
+    public class CustomList <T> : IEnumerable
     {
         private T[] _items;
 
@@ -42,17 +43,19 @@ namespace CustList
             count++;
         }
 
-        public void Remove(T itemToRemove)
+        public bool Remove(T itemToRemove)
         {
 
             T[] array1 = new T[capacity];
+            bool isremoved = false;
             for (int i = 0, j = 0; i < count; i++, j++)
             {
 
                 if (_items[i].Equals(itemToRemove))
                 {
                     j--;
-                    count--;
+                    isremoved = true;
+                    
                 }
                 else
                 {
@@ -61,6 +64,11 @@ namespace CustList
                 
             }
             _items = array1;
+            if (isremoved)
+            {
+                 count--;
+            }
+            return isremoved;
         }
         public override string ToString()
         {
@@ -122,15 +130,15 @@ namespace CustList
             }
             return numbers1;
         }
-        public System.Collections.IEnumerator GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
-            T[] array1 = new T[count];
+           
             for (int i = 0; i < _items.Length; i++)
             {
                 yield return _items[i];
-                yield return array1[i];
+                
             }
-            yield return "done";
+            
         }
 
 
