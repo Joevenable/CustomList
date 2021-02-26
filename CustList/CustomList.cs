@@ -124,12 +124,15 @@ namespace CustList
         }
         public System.Collections.IEnumerator GetEnumerator()
         {
+            T[] array1 = new T[count];
             for (int i = 0; i < _items.Length; i++)
             {
                 yield return _items[i];
+                yield return array1[i];
             }
             yield return "done";
         }
+
 
     }
 }
