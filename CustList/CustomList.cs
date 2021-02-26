@@ -85,12 +85,33 @@ namespace CustList
         {
             CustomList<T> numbers3 = new CustomList<T>();
 
-            
+            for (int i = 0; i < numbers1.Count; i++)
+            {
+                numbers3.Add(numbers1[i]);
+            }
+            for (int i = 0; i < numbers1.Count; i++)
+            {
+                numbers3.Add(numbers2[i]);
+            }
 
-            numbers3.Add(numbers1);
-            numbers3.Add(numbers2);
 
             return numbers3;
         }
+        public static CustomList<T> operator -(CustomList<T> numbers1, CustomList<T> numbers2)
+        {
+            
+            for (int i = 0, j = 0; i < numbers2.Count; i++, j++)
+            {
+                if (numbers1[j].Equals(numbers2[i]))
+                {
+                    j--;
+                    numbers1.count--;
+                }
+            }
+
+
+            return numbers1;
+        }
+
     }
 }
